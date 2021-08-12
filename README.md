@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 **DESCRIPTION**
 
 A sample python package deployment utility for NINAPRO dataset.
