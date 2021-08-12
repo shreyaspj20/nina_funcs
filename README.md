@@ -16,7 +16,7 @@ This pipeline requires the dependencies which can be installed by running `pip i
 *  _**get_data(path, file)**_
 
 Download the data from the NinaPro official website and save the data in a folder. 
-The get_data() requires the folder path and the file name as the input arguements.
+The get_data() requires the folder path and the file name as the input arguments.
 For example:
 
 `data = get_data('DB2_s1/DB2_s1','S1_E1_A1.mat')`
@@ -63,7 +63,7 @@ f0 is the notch_frequency, Q is the quality factor and fs is the sampling freque
 
 *  **_windowing(data, reps, gestures, win_len, win_stride)_**
 
-windowing() is used to augment the data. The function requires the following arguements : data, reps, gestures, win_len, win_stride.
+windowing() is used to augment the data. The function requires the following arguments : data, reps, gestures, win_len, win_stride.
 
 data = Pandas dataframe just like returned by any of the above functions.
 
@@ -71,9 +71,9 @@ reps = Repetitions that you want to use for windowing.
 
 gestures = The gesture movements that you wish to classify.
 
-win_len = (Length of window in milisecond) x 2. For example, for a window of 300ms, use 600 as the win_len since the sampling frequency of signal is 2000Hz.
+win_len = (Length of window in millisecond) x 2. For example, for a window of 300ms, use 600 as the win_len since the sampling frequency of signal is 2000Hz.
 
-win_stride = (Length of stride in milisecond) x 2. For example, for a stride of 10ms, use 20 as the win_stride since the sampling frequency of signal is 2000Hz.
+win_stride = (Length of stride in millisecond) x 2. For example, for a stride of 10ms, use 20 as the win_stride since the sampling frequency of signal is 2000Hz.
 
 `X_train, y_train, r_train = windowing(emg_notch, train_reps, gestures, win_len, win_stride)`
 
