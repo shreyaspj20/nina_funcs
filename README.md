@@ -129,3 +129,17 @@ This function rectifies the signals and converts all the negative values to posi
 
 `emg_rectified = rectify(emg_notch)`
 
+<p>&nbsp;</p>
+
+## Usage
+
+The package could be leveraged from PyPI using 
+`pip install nina-funcs`
+
+## Meta Data
+
+License: MIT License
+
+Author: Shreyas P J
+
+Requires: Python >=3.6
