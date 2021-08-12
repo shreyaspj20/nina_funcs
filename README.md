@@ -1,14 +1,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-**DESCRIPTION**
+## DESCRIPTION
 
 A sample python package deployment utility for NINAPRO dataset.
 This library aims at easing the preprocessing, amd training of the EMG signals from the NinaPro database.
 
-**FUNCTIONS**
+## QUICK START
 
-1. _**get_data(path, file)**_
+### Dependencies
+This pipeline requires the dependencies which can be installed by running `pip install -r requirements.txt`
+
+
+### Functions
+*  _**get_data(path, file)**_
 
 Download the data from the NinaPro official website and save the data in a folder. 
 The get_data() requires the folder path and the file name as the input arguements.
@@ -16,20 +21,24 @@ For example:
 
 `data = get_data('DB2_s1/DB2_s1','S1_E1_A1.mat')`
 
-2. **_normalise(data, train_reps)_**
+<p>&nbsp;</p>
+
+*  **_normalise(data, train_reps)_**
 
 normalise() scales the data using the normalise() uses the StandardScaler() from scikit-learn to normalize the data. It fits on training reps only and then transforms the whole data (excluding stimulus and repetition ofcourse).
 
 `data = normalise(data, train_reps)`
 
-train_reps are the repititions required in training set and test_reps are repititions
-required in the test/validation set. This permutation of numbers proved to give better results.
+train_reps are the reps required in training set and test_reps are reps
+required in the test/validation set. According to the recent research, this permutation of numbers proved to give better results.
 
 `train_reps = [1,3,4,6]`
 `test_reps = [2,5]`
 
+<p>&nbsp;</p>
 
-3. **_filter_data(data, f, butterworth_order=4, btype='bandpass')_**
+
+*  **_filter_data(data, f, butterworth_order=4, btype='bandpass')_**
 
 Sometimes, it is required that the signal is filtered with low noise or high noise frequencies. filter_data uses Butterworth filter to filter the data. It requires the cutoff frequency, the butterworth order, and the type of filter (btype is one of lowpass, highpass, bandpass).
 The bandpass filter requires the f value to be a tuple or a list containing lower cutoff frequency and higher cutoff frequency.
@@ -40,7 +49,9 @@ The bandpass filter requires the f value to be a tuple or a list containing lowe
 
 `emg_high = filter_data(data=data, f=20, butterworth_order=4, btype='high')`
 
-4. **_notch_filter(data, f0, Q, fs=2000)_**
+<p>&nbsp;</p>
+
+*  **_notch_filter(data, f0, Q, fs=2000)_**
 
 A Notch Filter is a bandstop filter with a very narrow stopband and two passbands, it actually highly attenuates/eliminates a particular frequency component from the input signal while leaving the amplitude of the other frequencies more or less unchanged.
 
@@ -48,7 +59,9 @@ f0 is the notch_frequency, Q is the quality factor and fs is the sampling freque
 
 `emg_notch = notch_filter(data=emg_band,f0=60,Q=30,fs=2000)`
 
-5. **_windowing(data, reps, gestures, win_len, win_stride)_**
+<p>&nbsp;</p>
+
+*  **_windowing(data, reps, gestures, win_len, win_stride)_**
 
 windowing() is used to augment the data. The function requires the following arguements : data, reps, gestures, win_len, win_stride.
 
@@ -67,7 +80,9 @@ win_stride = (Length of stride in milisecond) x 2. For example, for a stride of 
 `
 X_test, y_test, r_test = windowing(emg_notch, test_reps, gestures, win_len, win_stride)`
 
-6. **_get_categorical(y)_**
+<p>&nbsp;</p>
+
+*  **_get_categorical(y)_**
 
 For multiclass classification, we need the labels to be represented in one-hot representation.
 get_categorical() helps in converting the integer labels to one-hot representation.
@@ -76,7 +91,9 @@ get_categorical() helps in converting the integer labels to one-hot representati
 
 `y_test = get_categorical(y_test)`
 
-7. **_feature_extractor(features, shape, data)_**
+<p>&nbsp;</p>
+
+*  **_feature_extractor(features, shape, data)_**
 
 Hand crafting features could be time consuming and expensive. We extract important features:
 
@@ -93,8 +110,9 @@ The output dataframe would include all required features of all channels.
 
 `test_feature_matrix = feature_extractor(features,(X_test.shape[0],-1),X_test)`
 
+<p>&nbsp;</p>
 
-8. **_pca(data, comp)_**
+*  **_pca(data, comp)_**
 
 PCA is a dimensionality-reduction method that is often used to reduce the dimensionality of large data sets, by transforming a large set of variables into a smaller one that still contains most of the information in the large set.
 The function returns the reduced feature matrix with the mentioned number of components(columns).
@@ -103,7 +121,9 @@ The function returns the reduced feature matrix with the mentioned number of com
 
 `reduced_test_feature_matrix = pca(test_feature_matrix,30)`
 
-9. **_rectify(data)_**
+<p>&nbsp;</p>
+
+*  **_rectify(data)_**
 
 This function rectifies the signals and converts all the negative values to positive values by simply using the absolute value.
 
