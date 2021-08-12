@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+nina_funcs/src/nina_funcs.egg-info/PKG-INFO
+nina_funcs/src/nina_funcs.egg-info/SOURCES.txt
+nina_funcs/src/nina_funcs.egg-info/dependency_links.txt
+nina_funcs/src/nina_funcs.egg-info/top_level.txt
+nina_funcs/src/nina_funcs.py
+nina_funcs/src/nina_funcs.egg-info/PKG-INFO
+nina_funcs/src/nina_funcs.egg-info/SOURCES.txt
+nina_funcs/src/nina_funcs.egg-info/dependency_links.txt
+nina_funcs/src/nina_funcs.egg-info/top_level.txt
