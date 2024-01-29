@@ -137,6 +137,11 @@ This pipeline requires the dependencies which can be installed by running `pip i
 The package could be leveraged from PyPI using 
 `pip install nina-funcs`
 
+## We have currently hit 2.5k+ package downloads
+
+![image](https://github.com/shreyaspj20/nina_funcs/assets/56503884/837df5fb-5591-413d-860e-0ae790ca4ec8)
+
+
 ## 💥Meta Data
 
 License: MIT License
